@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms</title>
+    <style>
+      body {
+        background-color: darkslategrey;
+        color: whitesmoke;
+      }
+      textarea {
+          resize: none;
+      }
+    </style>
+</head>
+<body>
+    <form method="GET" action="https://request-inspector.glitch.me">
+        <fieldset>
+            <legend>Customer Information</legend>
+      <label for="username"><em>Username:</em></label>
+      <input type="text" name="username" id="username"><br>
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password"><br>
+      <br>
+      <label for="streetAddress">Street Address:</label>
+      <input type="text" name="streetAddress" id="streetAddress"><br>
+      <br>
+        <label for="city">City:</label>
+      <input type="text" name="city" id="city"><br>
+            <br>
+            <input type="submit" value="Submit">
+        </fieldset>
+
+<!--    Marvel or Dc?-->
+        <fieldset>
+        <legend><h3>Marvel or DC?</h3></legend>
+        <label for="marvel">Marvel</label>
+        <input type="radio" name="marvelOrDc" value="Marvel" id="marvel"><br>
+        <label for="dc">DC</label>
+        <input type="radio" name="marvelOrDc" value="DC" id="dc"><br>
+        </fieldset>
+<!--        <input type="submit" value="Submit">-->
+
+    <hr>
+    <fieldset>
+    <legend><h4>Choose your extras:</h4></legend>
+    <input type="checkbox" name="extras" value="Provolone" id="provolone"><label for="provolone">Provolone</label><br>
+    <input type="checkbox" name="extras" value="Cheddar" id="cheddar"><label for="cheddar">Cheddar</label><br>
+    <input type="checkbox" name="extras" value="American Cheese" id="american"><label for="american">American Cheese</label><br>
+    <input type="checkbox" name="extras" value="Swiss" id="swiss"><label for="swiss">Swiss Cheese</label><br>
+    <input type="checkbox" name="extras" value="Pepper Jack" id="pepperJack"><label for="pepperJack">Pepper Jack</label><br>
+    <input type="checkbox" name="extras" value="Jalapenos" id="jalapenos"><label for="jalapenos">Sliced Jalapenos</label><br>
+    <input type="checkbox" name="extras" value="Mushrooms" id="mushrooms"><label for="mushrooms">Sauteed Mushrooms</label><br>
+    <input type="checkbox" name="extras" value="Onions" id="onions"><label for="onions">Grilled Onions</label><br>
+    <input type="checkbox" name="extras" value="Bacon" id="bacon"><label for="bacon">Extra Bacon</label><br>
+    <input type="checkbox" name="extras" value="Guacamole" id="guacamole"><label for="guacamole">Guacamole</label><br>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend><h4><label for="destination">Choose your destination:</label></h4></legend>
+        <select name="destination" id="destination">
+            <option value="Hawaii">Hawaii</option>
+            <option value="Yucatan">Yucatan</option>
+            <option value="Greece">Greece</option>
+            <option value="Florida">Florida</option>
+            <option value="California">California</option>
+        </select><br>
+    </fieldset>
+        <br>
+    <fieldset>
+        <legend><h4><label for="comments">Please Leave Your Comments:</label></h4></legend>
+        <textarea name="comments" id="comments" cols="30" rows="10"></textarea><br>
+        <br>
+    </fieldset>
+<!--        Grab-Bag-->
+    <fieldset>
+        <input type="date" name="date" id="date"><br>
+        <input type="color" name="color"><br>
+        <input type="number" name="number"><br>
+        <input type="hidden" name="userId" value="44351">
+    </fieldset>
+
+<!--        Reset and Submit-->
+        <input type="reset"><br>
+        <br>
+        <input type="submit" value="Submit"><br>
+    </form>
+    <br>
+    <a href="https://request-inspector.glitch.me?username=jojo&streetAdress=678+Main+Street&city=San+Antonio%admin+true">Send Request</a>
+</body>
+</html>

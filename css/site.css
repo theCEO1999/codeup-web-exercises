@@ -1,0 +1,13 @@
+body {
+    background-color: black;
+    color: cornflowerblue;
+}
+h1 {
+    font-family: "Halvetica", sans-serif;
+}
+h2 {
+   border-bottom: 1px solid antiquewhite;
+}
+.bold {
+    font-weight: bold;
+}

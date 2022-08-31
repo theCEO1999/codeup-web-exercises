@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Color Properties</title>
+    <link rel="stylesheet" href="css/color-properties.css">
+</head>
+<body>
+
+<h1 class="main"> Color Properties </h1>
+
+<h2>1.How does hexadecimal color coding work?</h2>
+<div class="color-container">
+<div class="color-panel cool-blue">
+    <p class="color-label">Blue</p>
+    <p class="color-hex">#2d5dcc</p>
+
+</div>
+</div>
+
+
+<h2>2.Why use CSS color names over hex values and vice versa?</h2>
+<p> Different browsers may not agree on the names of colors.
+    The main advantage of a Hexadecimal Number is that it is very compact and by using a base of 16 means that the number of digits used to represent a given number is usually less than in binary or decimal. Also, it is quick and easy to convert between hexadecimal numbers and binary.</p>
+<br>
+<img src="img/A2bkY%20(1).png" alt="sorry dont have picture" height="25%" width="25%">
+
+
+<h2>3. Why use rgb to define a CSS color vs. a hex value?</h2>
+<p>RGB is specific to digital applications and is the most common color profile used by tv, computer monitors and mobile devices.
+    RGB uses an additive process which is the opposite of CMYK. This results in a larger range of colors than printed colors.</p>
+<img src="img/Print-conversion-usage-1024x1024.jpeg" alt="sorry dont have picture" height="25%" width="25%" <br><br>
+
+
+
+<h2>4. What is the difference between 3 digit hex values and 6? </h2>
+<p>3 digit hex values are a simplified version of 6 digit hex values. Not all 6 digit hex values can be converted into a 3 digit. An example of what can be converted is when duplicate characters are present:
+    #FFCC00 => #FC0</p>
+
+<p>6 Digit code vs 3 Digit code demonstration</p>
+<div id="display">
+    <div class="box" id="six-digit"> #FFCC00
+
+    </div>
+
+    <div class="box" id="three-digit"> #FC0
+
+    </div>
+</div>
+
+<h2>5.'background' and 'background-color' properties can produce the same output; why is this possible? </h2>
+<p> 'background' and 'background-color' properties can produce the same output; why is this possible?
+    background actually is a shorthand for<br>
+    background-color <br>
+    background-image<br>
+    background-position<br>
+    background-repeat<br>
+    background-attachment<br>
+    background-clip<br>
+    background-origin<br>
+    background-size<br>
+    Thus, besides the background-color, using the background shorthand you could also add one or more values without repeating any other background-* property more than once.</p>
+
+
+<h2>6. What is the 'a' in rgba? </h2>
+<p> Alpha is used to adjust transparency. The alpha is a number between 0.0 (fully transparent) and 1.0 ( fully opaque)</p>
+<div class="aquestion" id="ten">
+    <p class= "pAQ">10%</p>
+</div>
+<div class="aquestion" id="thirty">
+    <p class= "pAQ">30%</p>
+</div>
+<div class="aquestion" id="fifty">
+    <p class="pAQ">50%</p>
+</div>
+
+<div class="aquestion" id="eighty">
+    <p class="pAQ">80%</p>
+</div>
+
+<div class="aquestion" id="hundred">
+    <p class="pAQ">100%</p>
+</div>
+<br>
+
+
+<h2> 7.What is the 'Digital Color Meter' on a Mac? How is the helpful? </h2>
+<p>The DigitalColor Meter is an application that comes installed with every Mac. Its primary use is to locate a color on your screen and provide the values of that color. Those colors can be provided as three different values such as RGB, Hexadecimal, and as a percentage.</p>
+<img src="img/Screen%20Shot%202022-08-30%20at%202.36.16%20PM.png" alt="sorry dont have picture">
+<br>
+
+
+<h2> 8.What are CSS gradients?</h2>
+<p>Gradients are CSS elements of the image data type that show a transition between two or more colors. These transitions are shown as either linear or radial.</p>
+<p> This is linear</p><br><br>
+<div id="linear"></div>
+<br>
+<p>This is radial</p> <br><br>
+<div id="radial">
+</div> <br><br>
+<h2>By</h2>
+<h3>Rodrigo Marquez</h3>
+<h3>Mason Wudtee</h3>
+<h3>David Lara</h3>
+<h3>Caleb O Kane</h3>
+<h3>Nazareth Eriseno</h3>
+<h3>Jack Graham</h3>
+<script src="js/color-properties.js"></script>
+<script> htmlBody.onclick = randomClickfunction;</script>
+</body>
+</html>

@@ -167,4 +167,48 @@ function beeramid (bonus,price){
     }
     return x;
 }
-
+//
+// // 2. Color Properties
+// //
+// // How does hexadecimal color coding work?
+// //
+// //     Why use CSS color names over hex values and vice versa?
+// Hex codes can be more useful to a developer when a specific desired color is preferred.
+//     Using defined colors such as "blue" may be dependent on the browser's definition of blue, ' +
+// 'but a hex code will ensure the desired color is displayed regardless of browser definition.
+//
+// //     Why use rgb to define a CSS color vs. a hex value?
+//
+// //     What is the difference between 3 digit hex values and 6?
+// 3 digit hex values are a simplified version of 6 digit hex values. Not all 6 digit hex values can be converted into a 3 digit. An example of what can be converted is when duplicate characters are present:
+//     #FFCC00 => #FC0
+// //
+//     'background' and 'background-color' properties can produce the same output; why is this possible?
+//  background actually is a shorthand for
+//  background-color
+//  background-image
+//  background-position
+//  background-repeat
+//  background-attachment
+//  background-clip
+//  background-origin
+//  background-size
+// Thus, besides the background-color, using the background shorthand you could also add one or more values without repeating any other background-* property more than once.
+// //
+// //     What is the 'a' in rgba?
+// <p> Alpha is used to adjust transparency.
+//     The alpha is a number between 0.0 (fully transparent) and 1.0 ( fully opaque)</p>
+// //
+// //     What is the 'Digital Color Meter' on a Mac? How is the helpful?
+// <p>The DigitalColor Meter is an application that comes installed with every Mac.
+//     Its primary use is to locate a color on your screen and provide the values of that color.
+//     Those colors can be provided as three different values such as RGB, Hexadecimal, and as a percentage.</p>
+//     <h3>What are CSS gradients?</h3>
+// <p>Gradients are CSS elements of the image data type that show a transition between two or more colors.
+//     These transitions are shown as either linear or radial.
+//     Because they are of the image data type, gradients can be used anywhere an image might be.
+//     The most popular use for gradients would be in a background element.
+//     A linear gradient is horizontal,
+//     i.e the gradient colors appears as one on top of the other but for the radial,
+//     it takes a shape of either an oval or circle. A linear gradient progress in linear way,
+//     whereas radial gradient propagate either in a circle or ecliptic way.</p>

@@ -1,0 +1,67 @@
+* {
+    font-family: Beirut;
+}
+body {
+    background-color: rgba(0, 0, 20, .4);
+    color: blue;
+    background-image: url("../img/codeup-logo-with-Codey.png");
+    background-repeat: no-repeat;
+    background-position: top right;
+    font-family: "Roboto Light";
+
+
+}
+h3 {
+    color: blue;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 1.7em;
+    text-align: center;
+}
+h2 {
+    color: blue;
+    text-decoration: underline;
+    font-weight: bold;
+}
+header {
+    text-align: center;
+}
+ul li {
+    list-style: square;
+    font-size: 1.4em;
+}
+ol li {
+    font-size: 1.4em;
+}
+/* unvisited link (:link) */
+a:link {
+    color:blue;
+}
+
+/* visited link (:visited) */
+a:visited {
+    color:silver;
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    background-color: black;
+    color:yellow;
+}
+
+/* active/selected link (:active) */
+a:active {
+    color:green;
+}
+
+table {
+    margin: auto;
+    border: thin solid black;
+    border-collapse: collapse;
+    font-size: 1.2rem;
+}
+
+th, td {
+    border: thin solid black;
+    padding: 10px;
+}

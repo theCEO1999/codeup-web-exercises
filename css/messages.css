@@ -12,18 +12,22 @@ body, html {
     padding: 10px 5px;
 }
 .message-info {
+    color: rgb(109,122,252);
     background-color: rgb(209,222,252);
     margin: 10px;
 }
 .message-error {
+    color: rgb(244,112,115);
     background-color: rgb(244,212,215);
     margin: 10px;
 }
 .message-success {
+    color: rgb(115,242,120);
     background-color: rgb(215,242,220);
     margin: 10px;
 }
 .message-warning {
+    color: rgb(152,201,06);
     background-color: rgb(252,251,206);
     margin: 10px;
 }

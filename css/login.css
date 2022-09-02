@@ -12,9 +12,9 @@ body, html {
 
 form {
     /* This form should be separated from other elements by 1em */
-    padding: 1em;
+    margin: 1em;
     /* There must be 1em between the content and the border of this element */
-    margin: 1em
+    padding: 1em;
 }
 
 fieldset {
@@ -24,7 +24,7 @@ fieldset {
     /* There must be 1em between the content and the border of this element */
     padding: 1em;
     /* It should have no border */
-    /* it doesnt */
+    border: none;
     /* Its background should be white */
     background-color: white;
 
@@ -41,7 +41,7 @@ fieldset {
     /* This element must use 100% of the width */
     width: 100%;
     /* It should have a separation of .5em from elements on top of it and below it*/
-    margin: .5em;
+    margin: 0.5em 0;
 }
 
 .form-label {
@@ -62,20 +62,19 @@ fieldset {
     font-weight: bold;
     /* The border of this element should be 1px, and its color should be light grey */
     background-color: #0fb784;
-    border: 1px solid lightgrey;
+    border: 1px solid black;
 }
 
 .form-control {
     /* There must be 4px on top of the text and below the text of an input with this class */
-    padding: 4px;
+    padding: 4px 0;
     /* It should have a separation of .5em from elements on top of it and below it */
-    margin: .5em;
-
+    margin: .5em 0;
     /* You'll need to use the `calc` function to make the width of this element match the width of the button */
 
     /* See the example at: https://developer.mozilla.org/en-US/docs/Web/CSS/calc */
     /* HINT: Examples are available at: https://glitch.com/~input-button-width */
-    width: calc(100% - 15px);
+    width: calc(100% - 4px);
 }
 
 

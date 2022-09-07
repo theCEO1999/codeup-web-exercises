@@ -1,0 +1,41 @@
+nav {
+    display: flex;
+    background-color: rgb(193, 193, 193);
+    font-family: 'Work Sans', sans-serif;
+}
+nav * {
+    box-sizing: border-box;
+}
+a {
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 0.5em;
+    font-weight: bold;
+}
+
+a:hover {
+    color: blue;
+}
+
+section:nth-of-type {
+    margin: auto 0;
+}
+
+section:nth-of-type(2) {
+    font-family: Montserrat, sans-serif;
+    font-size: 3em;
+    margin: auto;
+    padding: 0.2em;
+}
+section:last-of-type {
+    display: flex;
+    justify-content: flex-start;
+    flex-basis: 25%;
+}
+
+section:last-of-type a {
+    align-self: center;
+    padding: 0 0.3em;
+}
+

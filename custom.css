@@ -1,0 +1,30 @@
+.jumbotron {
+    background-image: url('img/pizza.png');
+    height: 346px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+}
+
+.pizza {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#myTabContent {
+    border: 1px solid black;
+    color: white;
+    background-color: rgb(49,108,244);
+}
+/*h2 {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: center;*/
+/*    align-items: flex-end;*/
+/*    padding-top: 130px;*/
+/*}*/

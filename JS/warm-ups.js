@@ -1,141 +1,141 @@
 //write a function that accepts an array of numbers and returns its average.
-// Bonus: if there are any nom numeric values in the array, return false.
-// numeric strings should count as numeric values.
-const isNumber = function(input){
-    return !(isNaN(input) || typeof input === 'boolean' || input === null);
-}
-let array = [5, 10, 15];
-
-function averageArray(array){
-
-    let total = 0;
-    for(let i = 0; i < array.length; i++){
-        if (!isNumber(array[i])){return false;}
-        total += array[i];
-    }
-    return total/array.length;
-}
-// write a function that accepts an array of strings and returns the longest string.
-// if there are two strings of equal length it returns the one with the lowest index.
-// Bonus: if there are any values that are not strings, return false.
-
-let stringArray = ["Jabba", "Darth Maul", "Hondo"];
-
-function longestString(arrayOfStrings){
-    let longest = '';
-    for (let i = 0; i < arrayOfStrings.length; i++){
-        if (arrayOfStrings[i].length > longest.length) longest = arrayOfStrings[i];
-    }
-    return longest;
-}
-
-//// Write a function, calculateTotalStudents, that returns the total number of students
-// recorded in the classes array.
-let classes = [
-    {class: "6th grade history", students: 18},
-    {class: "7th grade history", students: 20},
-    {class: "8th grade history", students: 22}
-];
-
-function calculateTotalStudents(array) {
-    let total = 0;
-    for (let i = 0; i < array.length; i++){
-        total += array[i].students;
-    }
-    return total;
-}
-
-let numericArray = [8, 10, 20]
-
-function arraySum(array){
-    let total = 0;
-    for (let i = 0; i < array.length; i++){
-        total += array[i];
-    }
-    return total;
-}
-
-console.log(arraySum(numericArray));
-
-const neighborhood1 ={
-    neighborhood: "Lovely Estates",
-    medianHomePrice: 280000,
-    pool: true,
-    tennis: false,
-    crimeRate: "low",
-    schools: [
-        {name: "ES1", rating: 8},
-        {name: "MS2", rating: 6},
-        {name: "HS3", rating: 8}
-    ]
-}
-
-const neighborhood2 ={
-    neighborhood: "Luminous Estates",
-    medianHomePrice: 270000,
-    pool: true,
-    tennis: false,
-    crimeRate: "low",
-    schools: [
-        {name: "ES1", rating: 8},
-        {name: "MS2", rating: 8},
-        {name: "HS3", rating: 8}
-    ]
-}
-
-const neighborhood3 ={
-    neighborhood: "Ginormous Ego Estates",
-    medianHomePrice: 350000,
-    pool: true,
-    tennis: true,
-    crimeRate: "low",
-    schools: [
-        {name: "ES1", rating: 9},
-        {name: "MS2", rating: 9},
-        {name: "HS3", rating: 9}
-    ]
-}
-
-// Write a function that takes a neighborhood object and determines if it is desirable.
-// A neighborhood is desirable if the median home price is
-// less than 300000, crime rates are low, and the total rating of schools is at least 24.
-
-function neighborhoodDesirable(neighborhoodsObject) {
-    let schoolRating = 0;
-    for (let i = 0; i < neighborhoodsObject.schools.length; i++) {
-        schoolRating += neighborhoodsObject.schools[i].rating;
-    }
-    return neighborhoodsObject.medianHomePrice < 300000 && neighborhoodsObject.crimeRate === "low";
-}
-
-
-
-
-// Write a function called convertToObject that takes in a string that is the name of a class,
-// and a number that is the number of students, and returns an object with the properties `class`
-// and `students`
-//convertToObject("Intro to Programming", 20) returns {class: "Intro to Programming", students: 20}
-
-const convertToObject = function(nameOfClass, numberOfStudents){
-    return {
-        class: nameOfClass,
-        numberOfStudents: numberOfStudents
-    }
-}
-
-console.log(convertToObject("intro to programming", 20));
-
-//Let's pretend your company just hired your friend from college and paid you a referral bonus. Awesome! To celebrate, you're taking your team out to the terrible dive bar next door and using the referral bonus to buy, and build, the largest three-dimensional beer can pyramid you can. And then probably drink those beers, because let's pretend it's Friday too.
+// // Bonus: if there are any nom numeric values in the array, return false.
+// // numeric strings should count as numeric values.
+// const isNumber = function(input){
+//     return !(isNaN(input) || typeof input === 'boolean' || input === null);
+// }
+// let array = [5, 10, 15];
 //
-// A beer can pyramid will square the number of cans in each level - 1 can in the top level, 4 in the second, 9 in the next, 16, 25...
+// function averageArray(array){
 //
-// Complete the beeramid function to return the number of complete levels of a beer can pyramid you can make, given the parameters of:
+//     let total = 0;
+//     for(let i = 0; i < array.length; i++){
+//         if (!isNumber(array[i])){return false;}
+//         total += array[i];
+//     }
+//     return total/array.length;
+// }
+// // write a function that accepts an array of strings and returns the longest string.
+// // if there are two strings of equal length it returns the one with the lowest index.
+// // Bonus: if there are any values that are not strings, return false.
 //
-//     your referral bonus, and
+// let stringArray = ["Jabba", "Darth Maul", "Hondo"];
 //
-//     the price of a beer can
+// function longestString(arrayOfStrings){
+//     let longest = '';
+//     for (let i = 0; i < arrayOfStrings.length; i++){
+//         if (arrayOfStrings[i].length > longest.length) longest = arrayOfStrings[i];
+//     }
+//     return longest;
+// }
 //
-// For example:
+// //// Write a function, calculateTotalStudents, that returns the total number of students
+// // recorded in the classes array.
+// let classes = [
+//     {class: "6th grade history", students: 18},
+//     {class: "7th grade history", students: 20},
+//     {class: "8th grade history", students: 22}
+// ];
+//
+// function calculateTotalStudents(array) {
+//     let total = 0;
+//     for (let i = 0; i < array.length; i++){
+//         total += array[i].students;
+//     }
+//     return total;
+// }
+//
+// let numericArray = [8, 10, 20]
+//
+// function arraySum(array){
+//     let total = 0;
+//     for (let i = 0; i < array.length; i++){
+//         total += array[i];
+//     }
+//     return total;
+// }
+//
+// console.log(arraySum(numericArray));
+//
+// const neighborhood1 ={
+//     neighborhood: "Lovely Estates",
+//     medianHomePrice: 280000,
+//     pool: true,
+//     tennis: false,
+//     crimeRate: "low",
+//     schools: [
+//         {name: "ES1", rating: 8},
+//         {name: "MS2", rating: 6},
+//         {name: "HS3", rating: 8}
+//     ]
+// }
+//
+// const neighborhood2 ={
+//     neighborhood: "Luminous Estates",
+//     medianHomePrice: 270000,
+//     pool: true,
+//     tennis: false,
+//     crimeRate: "low",
+//     schools: [
+//         {name: "ES1", rating: 8},
+//         {name: "MS2", rating: 8},
+//         {name: "HS3", rating: 8}
+//     ]
+// }
+//
+// const neighborhood3 ={
+//     neighborhood: "Ginormous Ego Estates",
+//     medianHomePrice: 350000,
+//     pool: true,
+//     tennis: true,
+//     crimeRate: "low",
+//     schools: [
+//         {name: "ES1", rating: 9},
+//         {name: "MS2", rating: 9},
+//         {name: "HS3", rating: 9}
+//     ]
+// }
+//
+// // Write a function that takes a neighborhood object and determines if it is desirable.
+// // A neighborhood is desirable if the median home price is
+// // less than 300000, crime rates are low, and the total rating of schools is at least 24.
+//
+// function neighborhoodDesirable(neighborhoodsObject) {
+//     let schoolRating = 0;
+//     for (let i = 0; i < neighborhoodsObject.schools.length; i++) {
+//         schoolRating += neighborhoodsObject.schools[i].rating;
+//     }
+//     return neighborhoodsObject.medianHomePrice < 300000 && neighborhoodsObject.crimeRate === "low";
+// }
+//
+//
+//
+//
+// // Write a function called convertToObject that takes in a string that is the name of a class,
+// // and a number that is the number of students, and returns an object with the properties `class`
+// // and `students`
+// //convertToObject("Intro to Programming", 20) returns {class: "Intro to Programming", students: 20}
+//
+// const convertToObject = function(nameOfClass, numberOfStudents){
+//     return {
+//         class: nameOfClass,
+//         numberOfStudents: numberOfStudents
+//     }
+// }
+//
+// console.log(convertToObject("intro to programming", 20));
+//
+// //Let's pretend your company just hired your friend from college and paid you a referral bonus. Awesome! To celebrate, you're taking your team out to the terrible dive bar next door and using the referral bonus to buy, and build, the largest three-dimensional beer can pyramid you can. And then probably drink those beers, because let's pretend it's Friday too.
+// //
+// // A beer can pyramid will square the number of cans in each level - 1 can in the top level, 4 in the second, 9 in the next, 16, 25...
+// //
+// // Complete the beeramid function to return the number of complete levels of a beer can pyramid you can make, given the parameters of:
+// //
+// //     your referral bonus, and
+// //
+// //     the price of a beer can
+// //
+// // For example:
 //
 // beeramid(1500, 2); // should === 12
 // beeramid(5000, 3); // should === 16
@@ -158,16 +158,16 @@ console.log(convertToObject("intro to programming", 20));
 // }
 
 
-//This function works better
-function beeramid (bonus,price){
-    let total = (bonus - (bonus % price))/price; //this line tells you how many cans of beer you can buy
-    let x = 0; //accumulator variable
-    for (let i = 0; total >= ((1 / 3)*(i**3))+((1 / 2)*(i**2))+((1 / 6)*(i)); i++){ //solved for a cubic function
-        x = i; //match the accumulator to the number of levels
-    }
-    return x;
-}
-//
+// //This function works better
+// function beeramid (bonus,price){
+//     let total = (bonus - (bonus % price))/price; //this line tells you how many cans of beer you can buy
+//     let x = 0; //accumulator variable
+//     for (let i = 0; total >= ((1 / 3)*(i**3))+((1 / 2)*(i**2))+((1 / 6)*(i)); i++){ //solved for a cubic function
+//         x = i; //match the accumulator to the number of levels
+//     }
+//     return x;
+// }
+// //
 // // 2. Color Properties
 // //
 // // How does hexadecimal color coding work?
@@ -205,10 +205,164 @@ function beeramid (bonus,price){
 //     Those colors can be provided as three different values such as RGB, Hexadecimal, and as a percentage.</p>
 //     <h3>What are CSS gradients?</h3>
 // <p>Gradients are CSS elements of the image data type that show a transition between two or more colors.
-//     These transitions are shown as either linear or radial.
-//     Because they are of the image data type, gradients can be used anywhere an image might be.
-//     The most popular use for gradients would be in a background element.
-//     A linear gradient is horizontal,
-//     i.e the gradient colors appears as one on top of the other but for the radial,
-//     it takes a shape of either an oval or circle. A linear gradient progress in linear way,
-//     whereas radial gradient propagate either in a circle or ecliptic way.</p>
+// //     These transitions are shown as either linear or radial.
+// //     Because they are of the image data type, gradients can be used anywhere an image might be.
+// //     The most popular use for gradients would be in a background element.
+// //     A linear gradient is horizontal,
+// //     i.e the gradient colors appears as one on top of the other but for the radial,
+// //     it takes a shape of either an oval or circle. A linear gradient progress in linear way,
+// //     whereas radial gradient propagate either in a circle or ecliptic way.</p>
+//
+//
+// const attendance = {
+//     miami: 32789,
+//     buffalo: 45678,
+//     portland: 24567
+// }
+//
+// // function totalAttendance(attendanceObject){
+// //     let attendanceArray = Object.values(attendanceObject);
+// //     let total = 0;
+// //     for (let i =0; i < attendanceArray.length; i++){
+// //         total += attendanceArray[i];
+// //     }
+// //     return total;
+// // }
+//
+// function totalAttendance(attendanceObject){
+//     let total = 0;
+//     for (const prop in attendance){
+//         total += attendance[prop];
+//     }
+//     return total;
+// }
+//
+// // function totalAttendance(attendanceObject){
+// //     let attendanceArray = object.values(totalAttendance);
+// //     let total = 0;
+// //     attendanceArray.forEach(function(attendance){
+// //         total += attendance;
+// //     })
+// // }
+//
+// //returns the average
+//
+// function averageAttendance(attendanceObject){
+//     let total = 0;
+//     for (const prop in attendance){
+//         total += attendance[prop];
+//     }
+//     return total/Object.keys(attendance).length;
+// }
+//
+// function createObject(attendanceObject){
+//     let total = 0;
+//     for (const prop in attendance){
+//         total += attendance[prop];
+//     }
+//     return {
+//         totalAttendance: total,
+//         averageAttendance: total/Object.keys(attendance).length;
+//     }
+// }
+
+/**
+ * Convert Address to Object
+ * Write a function named convertAddressToObject that accepts a string that contains a street number (as a string) and street name separated by a space characters, and returns an object with properties streetNumber and streetName.
+ *
+ * Examples
+ *
+ * >> convertAddressToObject('8646 Sunny Oaks') ➞ {streetNumber: '8646', streetName: 'Sunny Oaks'}
+ * >> convertAddressToObject('5408 Villa Nueva') ➞ {streetNumber: '5408', streetName: 'Villa Nueva'}
+ **/
+let address = '8646 Sunny Oaks'
+//
+// function convertAddressToObject(addressString){
+//     return {
+//         streetNumber: addressString.substring(0, addressString.indexOf(' ')),
+//         streetName: addressString.substring(addressString.indexOf(' ')+ 1)
+//     }
+// }
+// either function works^
+function convertAddressToObject(addressString){
+    let addressArray = addressString.split(' ');
+    return {
+        streetNumber: addressArray[0],
+        streetName: addressArray.slice(1, addressArray.length).join(' ')
+    }
+}
+
+/**
+ * Count total pets
+ * Write a function named totalPets that accepts an array of objects where each object represents a person, and has a 'pets' property for their owned pets. The function should return the sum of every object's numPets property.
+ *
+ * Examples
+ *
+ * >> totalPets([
+ *       {name: 'Fernando Mendoza', pets: 1},
+ *       {name: 'Douglas Hirsh', pets: 8},
+ *       {name: 'Kenneth Howell', pets: 2}
+ *    ]) ➞ 11
+ */
+let peopleAndPets = ([
+    {name: 'Fernando Mendoza', pets: 1},
+    {name: 'Douglas Hirsh', pets: 8},
+    {name: 'Kenneth Howell', pets: 2}
+])
+
+// function totalPets(arrayOfObjects){
+//     let totalPetsArray = Object.values(arrayOfObjects);
+//     let total = 0;
+//     for (let i =0; i < arrayOfObjects.length; i++){
+//         total += arrayOfObjects[i].pets;
+//     }
+//     return total;
+// }
+// both work but the function below uses a for each to do the same thing
+// function totalPets(arrayOfObjects){
+//     let total = 0;
+//     arrayOfObjects.forEach(function(object){
+//         total += object.pets;
+//     });
+//     return total:
+// }
+
+// function below works using .reduce but still does the same as the two above
+function totalPets(arrayOfObjects){
+    return arrayOfObjects.reduce(function(acc, currentValue){
+        return acc + currentValue.pets;
+    }, 0)
+}
+
+/**
+ * Find the Smallest and Biggest Numbers
+ * Create a function named minMax that takes an array of numbers and return both the minimum and maximum numbers, in that order.
+ *
+ * Examples
+ * >> minMax([1, 2, 3, 4, 5]) ➞ [1, 5]
+ * >> minMax([2334454, 5]) ➞ [5, 2334454]
+ * >> minMax([1]) ➞ [1, 1]
+ *
+ * Notes
+ * All test arrays will have at least one element and are valid.
+ */
+function minMax(){
+
+}
+
+/**
+ * Filter out Strings from an Array
+ * Create a function named filterArray that takes an array of non-negative integers and strings and return a new array without the strings.
+ *
+ * Examples
+ *
+ * >> filterArray([1, 2, "a", "b"]) ➞ [1, 2]
+ * >> filterArray([1, "a", "b", 0, 15]) ➞ [1, 0, 15]
+ * >> filterArray([1, 2, "aasf", "1", "123", 123]) ➞ [1, 2, 123]
+ *
+ * Notes
+ * Zero is a non-negative integer.
+ * The given array only has integers and strings.
+ * Numbers in the array should not repeat.
+ * The original order must be maintained.
+ */

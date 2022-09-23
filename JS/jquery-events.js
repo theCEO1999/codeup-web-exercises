@@ -19,15 +19,25 @@ $(function(){
         alert("oooooooo");
     });
 
-    $('.box').hover(function(){
-        $(this).css('background-color', 'blue');
-    },
-    function(){
-        $(this).css('background-color', 'unset')
+    // $('.box').hover(function(){
+    //     $(this).css('background-color', 'blue');
+    // },
+    // function(){
+    //     $(this).css('background-color', 'unset')
+    // });
+
+    $('.box').hover(function() {
+        $(this).toggleClass('blue');
     });
 
     $(document).keydown(function(e){
         alert("you just pressed a key down");
         console.log(e);
-    })
+    });
+
+    console.log($('div').text());
+    console.log($('div').html());
+
+
 });
+

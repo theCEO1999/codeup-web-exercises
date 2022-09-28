@@ -13,8 +13,8 @@
     <script src="JS/mapbox-geocoder-utils.js"></script>
     <style>
         #map {
-            width: 90%;
-            height: 650px;
+            width: 85%;
+            height: 500px;
         }
     </style>
 </head>
@@ -26,6 +26,11 @@
     <label for="zoom">Set Zoom</label>
     <input type="text" name="zoom" id="zoom" class="my-2">
     <button id="zoomSubmit">Submit</button>
+</form>
+<form class="mx-auto w-25 mt-2">
+    <label for="setMarker">Enter an Adress</label>
+    <input type="text" name="setMarker" id="setMarker" class="my-2">
+    <button id="setMarkerButton">Set Marker</button>
 </form>
 <div id='map' style='width: 400px; height: 300px;'></div>
 <script>
@@ -52,9 +57,29 @@
         .setLngLat([-98.48962, 29.42692])
         .addTo(map)
     const codeupPopup = new mapboxgl.Popup()
-        .setHTML(`<p class="mt-3" style="width: 400px;">Codeup</p>`);
+        .setHTML(`<p class="mt-3">Codeup</p>`);
     codeupMarker.setPopup(codeupPopup);
 
+
+    let coords;
+    function getCoords(address, token){
+        geocode(address, token).then(function (coordinates){
+            console.log(coordinates);
+            coords = coordinates;
+        })
+    }
+    getCoords("600 Navaro St, San Antonio", MAPBOX_API_TOKEN);
+    console.log(coords);
+
+    document.getElementById('setMarkerButton').addEventListener('click', function (e){
+        e.preventDefault();
+        const address = document.getElementById('setMarker').value;
+        console.log(address);
+        geocode(address, MAPBOX_API_TOKEN).then(function (coordinates){
+            const userMarker = new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
+            map.setCenter(coordinates);
+        });
+    });
 
 </script>
 </body>

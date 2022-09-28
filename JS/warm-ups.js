@@ -366,3 +366,263 @@ function minMax(){
  * Numbers in the array should not repeat.
  * The original order must be maintained.
  */
+
+
+// second JS Test practice
+
+function doubleNumber(number){
+    return number * 2;
+}
+
+function upperCase(string){
+    return string.toUpperCase();
+}
+
+function repeatString(string){
+    return string.concat(', ', string);
+}
+
+let myArray = [1, 2, 3, 4, 5, 6]
+
+function removeFirstElement(array){
+    array.shift();
+    return array
+}
+
+function moveFirstToLast(array){
+    let firstElement = array.shift();
+    array.push(firstElement);
+    return array;
+}
+
+const students = [
+        {
+         id: 1,
+         name: "Jacek",
+         notes: [5, 3, 4, 2, 5, 5]
+        },
+        {
+             id: 2,
+             name: "Ewa",
+             notes: [2, 3, 3, 3, 2, 5]
+        },
+        {
+        id: 3,
+       name: "Zygmunt",
+        notes: [2, 2, 4, 4, 3, 3]
+        }
+]
+
+function getStudentTopNotes (arrayOfStudentObjects){
+    const topNotes = [];
+    arrayOfStudentObjects.forEach(studentObject => {
+        topNotes.push(Math.max(...studentObject.notes));
+    });
+    return topNotes;
+}
+//
+// function getStudentTopNotes(arrayOfStudentObjects){
+//     let topNotes = [];
+//     for (let i = 0; i < arrayOfStudentObjects.length; i++){
+//         let topNote = arrayOfStudentObjects[i].notes[0];
+//         for (let j = 0; j < arrayOfStudentObjects[i].notes.length; j++){
+//             if (arrayOfStudentObjects[i].notes[j] > topNote){
+//                 topNote = arrayOfStudentObjects[i].notes[j];
+//             }
+//         }
+//         topNotes.push(topNote);
+//     }
+//     return topNotes;
+// }
+
+// Write a function that accepts a string, breaks down the string into components, and returns an object where each component of the string has become the value of a property
+let cityAndState = 'San Antonio, Texas';
+
+
+
+//Write a function that analyzes a string, returning an object that contains several properties with information about the string, example, length, firstLetter, and lastLetter properties
+
+function analyzeString(string){
+    return {
+        length: string.length,
+        firstLetter: string.charAt(0),
+        lastLetter: string.charAt(string.length - 1)
+    };
+}
+
+// write a function that removes every odd number from an array of numbers
+myArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function removeOddsFromAnArray(array){
+    const newArray = [];
+    for (let i = 0; i < array.length; i++){
+        if (array[i] % 2 === 0){
+            newArray.push(array[i]);
+        }
+    }
+    return newArray;
+}
+
+// write a function that takes an array of numeric values and returns an array with all those vvalues
+
+function doubleNumbers(array){
+    const newArray = [];
+    for (let i = 0; i < array.length; i++){
+        newArray.push(array[i] * 2);
+    }
+    return newArray;
+}
+
+const isNumber = function(input){
+    return !(isNaN(input) || typeof input === 'boolean' || input === null || input === undefined);
+}
+
+let array = [5, 10, 15];
+
+let array2 = [-25, -22, 258, 68];
+
+let array3 = ["notANumber", 25, 78];
+
+function arrayAverage(array){
+    if (array === undefined){return false;}
+    let total = 0;
+    for (let i = 0; i < array.length; i++){
+        if (!isNumber(array[i])){return false;}
+        total += array[i];
+    }
+    return total/array.length;
+}
+
+let stringArray = ["buzzworthy", "Jabba", "Darth Maul", "Hondo", "buzzworthy"];
+
+function longestString(arrayOfStrings){
+    let longest = '';
+    for (let i = 0; i < arrayOfStrings.length; i++){
+        if (arrayOfStrings[i].length > longest.length) longest = arrayOfStrings[i];
+    }
+    return longest;
+}
+
+//// Write a function, calculateTotalStudents, that returns the total number of students recorded in the classes array.
+let classes = [
+    {class: "6th grade history", students: 18},
+    {class: "7th grade history", students: 20},
+    {class: "8th grade history", students: 22}
+];
+
+function calculateTotalStudents(array){
+    let total = 0;
+    for (let i = 0; i < array.length; i++){
+        total += array[i].students;
+    }
+    return total;
+}
+
+// If this stumps you , try starting with the simpler form of the problem: write a function that calculates the sum of the elements of an array.  Thus, if you give it
+let numericArray = [8, 10, 20];
+// the function should return 38
+
+function arraySum(array){
+    let total = 0;
+    for (let i = 0; i < array.length; i++){
+        total += array[i];
+    }
+    return total;
+}
+
+// Write a function called convertToObject that takes in a string that is the name of a class, and a number that is the number of students, and returns an object with the properties `class` and `students`
+
+
+const convertToObject = (nameOfClass, numberOfStudents) => {
+    return {
+        class: nameOfClass,
+        numberOfStudents: numberOfStudents
+    }
+}
+
+
+const neighborhood1 = {
+    neighborhood: "Lovely Estates",
+    medianHomePrice: 280000,
+    pool: true,
+    tennis: false,
+    crimeRate: "low",
+    schools: [
+        {name: "ES1", rating: 8},
+        {name: "MS2", rating: 6},
+        {name: "HS3", rating: 8}
+    ]
+}
+
+const neighborhood2 = {
+    neighborhood: "Luminous Estates",
+    medianHomePrice: 270000,
+    pool: true,
+    tennis: false,
+    crimeRate: "low",
+    schools: [
+        {name: "ES1", rating: 8},
+        {name: "MS2", rating: 8},
+        {name: "HS3", rating: 8}
+    ]
+}
+
+const neighborhood3 = {
+    neighborhood: "Ginormous Ego Estates",
+    medianHomePrice: 350000,
+    pool: true,
+    tennis: true,
+    crimeRate: "low",
+    schools: [
+        {name: "ES1", rating: 9},
+        {name: "MS2", rating: 9},
+        {name: "HS3", rating: 9}
+    ]
+}
+
+// Write a function that takes a neighborhood object and determines if it is desirable. A neighborhood is desirable if the median home price is less than 300000, crime rates are low, and the total rating of schools is at least 24.
+
+function desirableNeighborhood(neighborhoodsObject){
+    let total = 0;
+    for (let i = 0; i < neighborhoodsObject.schools.length; i++){
+        total += neighborhoodsObject.schools[i].rating;
+    }
+    return neighborhoodsObject.medianHomePrice < 300000 && neighborhoodsObject.crimeRate === "low" && total >= 24;
+}
+
+//Let's pretend your company just hired your friend from college and paid you a referral bonus. Awesome! To celebrate, you're taking your team out to the terrible dive bar next door and using the referral bonus to buy, and build, the largest three-dimensional beer can pyramid you can. And then probably drink those beers, because let's pretend it's Friday too.
+
+function beeramid(bonus, price){
+    let totalCost = 0;
+    let levels = 0;
+    while (totalCost < bonus){
+        totalCost += levels * levels * price;
+        if (totalCost + ((levels +1) ** 2 * price) > bonus){break;}
+        levels++;
+    }
+    return levels;
+}
+
+const attendance = {
+    miami: 32789,
+    buffalo: 45678,
+    portland: 24567
+}
+
+function totalAttendance(attendanceObject){
+    let total = 0;
+    for (const prop in attendance){
+        total += attendance[prop];
+    }
+    return total;
+}
+
+function averageAttendance(attendanceObject){
+    let total = 0;
+    for (const prop in attendance){
+        total += attendance[prop];
+    }
+    return total/Object.keys(attendance).length;
+}
+
+

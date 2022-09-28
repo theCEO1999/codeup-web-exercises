@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+    <script src="JS/jquery-3.6.1.min.js"></script>
+    <script src="JS/mapbox-geocoder-utils.js"></script>
+  <script src="JS/keys.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        .card {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /*text-wrap: normal;*/
+            /*align-items: center;*/
+            border: 1px solid black;
+            height: 200px;
+            width: 20%;
+        }
+        .cardDiv {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+<div class="cardDiv">
+    <div class="card" id="card1"></div>
+    <div class="card" id="card2"></div>
+    <div class="card" id="card3"></div>
+    <div class="card" id="card4"></div>
+    <div class="card" id="card5"></div>
+    <div hidden="true" id="lat"></div>
+    <div hidden="true" id="lng"></div>
+</div>
+<div id='map' style='width: 100%; height: 400px;'></div>
+<form class="mx-auto w-25 mt-2">
+    <label for="setMarker">Enter an Adress</label>
+    <input type="text" name="setMarker" id="setMarker" class="my-2">
+    <button id="setMarkerButton">Set Marker</button>
+</form>
+<script src="JS/weather_map.js"></script>
+</body>
+</html>

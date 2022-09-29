@@ -1,29 +1,5 @@
 $(function(){
-    // $.get("https://api.openweathermap.org/data/2.5/onecall", {
-    //     APPID: OPEN_WEATHER_APPID,
-    //     lat: 29.423017,
-    //     lon: -98.48527,
-    //     // q:     "San Antonio, US",
-    //     units: "imperial"
-    // }).done(function(data) {
-    //     console.log(data);
-    // });
 
-    // $.get("https://api.openweathermap.org/data/2.5/forecast", {
-    //     APPID: OPEN_WEATHER_APPID,
-    //     lat:    29.423017,
-    //     lon:   -98.48527,
-    //     units: "imperial"
-    // }).done(function(data) {
-    //     console.log(data);
-    //     console.log(data.city.population);
-    //     console.log(data.list[0].visibility);
-    //     data.list.forEach((forecast, index) =>{
-    //         if (index < 5){
-    //             console.log(forecast);
-    //         }
-    //     })
-    // });
 
     function windCardinalDirection(degrees){
         let cardinalDirection = '';
@@ -85,7 +61,7 @@ $(function(){
         let formattedDateTime = month + " " + day + " " + year + " " + hour + ":" + minutes + ":" + seconds;
         return formattedDateTime;
     }
-    $.get
+
     $.get("http://api.openweathermap.org/data/2.5/weather", {
         APPID: OPEN_WEATHER_APPID,
         lat: 29.423017,
@@ -137,8 +113,13 @@ $(function(){
         geocode(address, MAPBOX_API_TOKEN).then(function (coordinates){
             const userMarker = new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
             map.setCenter(coordinates);
+            const userPopup = new mapboxgl.Popup()
+                .setHTML(`<p class="mx-auto" style="font-weight: bolder">Yo!</p>`);
+            userMarker.setPopup(userPopup);
         });
     });
+
+
 
     // document.querySelector('map').addEventListener('click', function (e){
     //     e.preventDefault();
@@ -151,6 +132,23 @@ $(function(){
     //     console.log("map.getMapId:" + map._getMapId())
     // })
 
+    // Add zoom and rotation controls to the map.
+    map.addControl(new mapboxgl.NavigationControl());
+
+    // Initialize the GeolocateControl.
+    const geolocate = new mapboxgl.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        trackUserLocation: true
+    });
+// Add the control to the map.
+    map.addControl(geolocate);
+// Set an event listener that fires
+// when a geolocate event occurs.
+    geolocate.on('geolocate', () => {
+        console.log('A geolocate event has occurred.');
+    });
 
     map.on('click', (e) => {
         console.log(e);
@@ -173,35 +171,177 @@ $(function(){
             $('#card1').append(`<div>${formatTime(data.list[0].dt)}</div>
                             <div>Current Temp: ${(data.list[0].main.temp)} F</div>
                             <div>Pressure: ${data.list[0].main.pressure}</div>
-                            <div>${data.list[0].weather[0].icon}</div>
+                            <img src="http://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png">
+                            <div id="icon1" class="icon">${data.list[0].weather[0].icon}</div>
                             <div>Description: ${data.list[0].weather[0].description}</div>
                             <div>Wind: ${data.list[8].wind.speed} ${(windCardinalDirection(data.list[0].wind.deg))}</div>`)
             $('#card2').append(`<div>${formatTime(data.list[8].dt)}</div>
                             <div>Temp: ${(data.list[8].main.temp)} F</div>
                             <div>Pressure: ${data.list[8].main.pressure}</div>
-                            <div>${data.list[8].weather[0].icon}</div>
+                            <img src="http://openweathermap.org/img/w/${data.list[8].weather[0].icon}.png">
+                            <div id="icon2" class="icon">${data.list[8].weather[0].icon}</div>
                             <div>Description: ${data.list[8].weather[0].description}</div>
                             <div>Wind: ${data.list[8].wind.speed} ${(windCardinalDirection(data.list[8].wind.deg))}</div>`)
             $('#card3').append(`<div>${formatTime(data.list[16].dt)}</div>
                             <div>Temp: ${(data.list[16].main.temp)} F</div>
                             <div>Pressure: ${data.list[16].main.pressure}</div>
-                            <div>${data.list[16].weather[0].icon}</div>
+                            <img src="http://openweathermap.org/img/w/${data.list[16].weather[0].icon}.png">
+                            <div id="icon3" class="icon">${data.list[16].weather[0].icon}</div>
                             <div>Description: ${data.list[16].weather[0].description}</div>
                             <div>Wind: ${data.list[16].wind.speed} ${(windCardinalDirection(data.list[8].wind.deg))}</div>`)
             $('#card4').append(`<div>${formatTime(data.list[24].dt)}</div>
                             <div>Temp: ${(data.list[24].main.temp)} F</div>
                             <div>Pressure: ${data.list[24].main.pressure}</div>
-                            <div>${data.list[24].weather[0].icon}</div>
+                            <img src="http://openweathermap.org/img/w/${data.list[24].weather[0].icon}.png">
+                            <div id="icon4" class="icon">${data.list[24].weather[0].icon}</div>
                             <div>Description: ${data.list[24].weather[0].description}</div>
                             <div>Wind: ${data.list[24].wind.speed} ${(windCardinalDirection(data.list[8].wind.deg))}</div>`)
             $('#card5').append(`<div>${formatTime(data.list[32].dt)}</div>
                             <div>Temp: ${(data.list[32].main.temp)} F</div>
                             <div>Pressure: ${data.list[32].main.pressure}</div>
-                            <div>${data.list[32].weather[0].icon}</div>
+                            <img src="http://openweathermap.org/img/w/${data.list[32].weather[0].icon}.png">
+                            <div id="icon5" class="icon">${data.list[32].weather[0].icon}</div>
                             <div>Description: ${data.list[32].weather[0].description}</div>
                             <div>Wind: ${data.list[32].wind.speed} ${(windCardinalDirection(data.list[8].wind.deg))}</div>`)
+
         });
+
+
+        // let iconData1 = $(document.getElementById('icon1').innerText);
+        // iconData1.addEventListener('click', function (){
+        //
+        //     if (iconData1.innerText === '11d'){
+        //         $('#card1').css().backgroundImage='img/thunderstorm-11d.jpeg';
+        //     } else if (iconData1.innerText === '09d'){
+        //         $('#card1').css().backgroundImage='img/drizzle-09d.jpeg';
+        //     } else if (iconData1.innerText === '10d'){
+        //         $('#card1').css().backgroundImage='img/rain-10d.jpeg';
+        //     } else if (iconData1.innerText === '13d'){
+        //         $('#card1').css().backgroundImage='img/freezing-rain-13d.jpeg';
+        //     } else if (iconData1.innerText === '50d'){
+        //         $('#card1').css().backgroundImage='img/atmosphere-50d.jpeg';
+        //     } else if (iconData1.innerText === '01d' || '01n'){
+        //         $('#card1').css().backgroundImage='img/clear-sky-01d-01n.jpeg';
+        //     } else if (iconData1.innerText === '02d' || '02n'){
+        //         $('#card1').css().backgroundImage='img/cloud-02d-02n.jpeg';
+        //     } else if (iconData1.innerText === '03d' || '03n'){
+        //         $('#card1').css().backgroundImage='img/cloud-03d-03n.jpeg';
+        //     } else if (iconData1.innerText === '04d' || '04n'){
+        //         $('#card1').css().backgroundImage='img/cloud-04d-04n.jpeg';
+        //     }
+        // })
+        //
+        // const iconData2 = $(document.getElementById('icon2').innerText);
+        // iconData2.css('background-image', function (e){
+        //     e.preventDefault();
+        //     if (iconData2.innerText === '11d'){
+        //         $('#card2').css().backgroundImage='img/thunderstorm-11d.jpeg';
+        //     } else if (iconData2.innerText === '09d'){
+        //         $('#card2').css().backgroundImage='img/drizzle-09d.jpeg';
+        //     } else if (iconData2.innerText === '10d'){
+        //         $('#card2').css().backgroundImage='img/rain-10d.jpeg';
+        //     } else if (iconData2.innerText === '13d'){
+        //         $('#card2').css().backgroundImage='img/freezing-rain-13d.jpeg';
+        //     } else if (iconData2.innerText === '50d'){
+        //         $('#card2').css().backgroundImage='img/atmosphere-50d.jpeg';
+        //     } else if (iconData2.innerText === '01d' || '01n'){
+        //         $('#card2').css().backgroundImage='img/clear-sky-01d-01n.jpeg';
+        //     } else if (iconData2.innerText === '02d' || '02n'){
+        //         $('#card2').css().backgroundImage='img/cloud-02d-02n.jpeg';
+        //     } else if (iconData2.innerText === '03d' || '03n'){
+        //         $('#card2').css().backgroundImage='img/cloud-03d-03n.jpeg';
+        //     } else if (iconData2.innerText === '04d' || '04n'){
+        //         $('#card2').css().backgroundImage='img/cloud-04d-04n.jpeg';
+        //     }
+        // })
+        //
+        // const iconData3 = $(document.getElementById('icon3').innerText);
+        // iconData3.css('background-image', function (e){
+        //     e.preventDefault();
+        //     if (iconData3.innerText === '11d'){
+        //         $('#card3').css().backgroundImage='img/thunderstorm-11d.jpeg';
+        //     } else if (iconData3.innerText === '09d'){
+        //         $('#card3').css().backgroundImage='img/drizzle-09d.jpeg';
+        //     } else if (iconData3.innerText === '10d'){
+        //         $('#card3').css().backgroundImage='img/rain-10d.jpeg';
+        //     } else if (iconData3.innerText === '13d'){
+        //         $('#card3').css().backgroundImage='img/freezing-rain-13d.jpeg';
+        //     } else if (iconData3.innerText === '50d'){
+        //         $('#card3').css().backgroundImage='img/atmosphere-50d.jpeg';
+        //     } else if (iconData3.innerText === '01d' || '01n'){
+        //         $('#card3').css().backgroundImage='img/clear-sky-01d-01n.jpeg';
+        //     } else if (iconData3.innerText === '02d' || '02n'){
+        //         $('#card3').css().backgroundImage='img/cloud-02d-02n.jpeg';
+        //     } else if (iconData3.innerText === '03d' || '03n'){
+        //         $('#card3').css().backgroundImage='img/cloud-03d-03n.jpeg';
+        //     } else if (iconData3.innerText === '04d' || '04n'){
+        //         $('#card3').css().backgroundImage='img/cloud-04d-04n.jpeg';
+        //     }
+        // })
+        //
+        // const iconData4 = $(document.getElementById('icon4').innerText);
+        // iconData4.css('background-image', function (e){
+        //     e.preventDefault();
+        //     if (iconData4.innerText === '11d'){
+        //         $('#card4').css().backgroundImage='img/thunderstorm-11d.jpeg';
+        //     } else if (iconData4.innerText === '09d'){
+        //         $('#card4').css().backgroundImage='img/drizzle-09d.jpeg';
+        //     } else if (iconData4.innerText === '10d'){
+        //         $('#card4').css().backgroundImage='img/rain-10d.jpeg';
+        //     } else if (iconData4.innerText === '13d'){
+        //         $('#card4').css().backgroundImage='img/freezing-rain-13d.jpeg';
+        //     } else if (iconData4.innerText === '50d'){
+        //         $('#card4').css().backgroundImage='img/atmosphere-50d.jpeg';
+        //     } else if (iconData4.innerText === '01d' || '01n'){
+        //         $('#card4').css().backgroundImage='img/clear-sky-01d-01n.jpeg';
+        //     } else if (iconData4.innerText === '02d' || '02n'){
+        //         $('#card4').css().backgroundImage='img/cloud-02d-02n.jpeg';
+        //     } else if (iconData4.innerText === '03d' || '03n'){
+        //         $('#card4').css().backgroundImage='img/cloud-03d-03n.jpeg';
+        //     } else if (iconData4.innerText === '04d' || '04n'){
+        //         $('#card4').css().backgroundImage='img/cloud-04d-04n.jpeg';
+        //     }
+        // })
+        //
+        // const iconData5 = $(document.getElementById('icon5').innerText);
+        // iconData5.css('background-image', function (e){
+        //     e.preventDefault();
+        //     if (iconData5.innerText === '11d'){
+        //         $('#card5').css().backgroundImage='img/thunderstorm-11d.jpeg';
+        //     } else if (iconData5.innerText === '09d'){
+        //         $('#card5').css().backgroundImage='img/drizzle-09d.jpeg';
+        //     } else if (iconData5.innerText === '10d'){
+        //         $('#card5').css().backgroundImage='img/rain-10d.jpeg';
+        //     } else if (iconData5.innerText === '13d'){
+        //         $('#card5').css().backgroundImage='img/freezing-rain-13d.jpeg';
+        //     } else if (iconData5.innerText === '50d'){
+        //         $('#card5').css().backgroundImage='img/atmosphere-50d.jpeg';
+        //     } else if (iconData5.innerText === '01d' || '01n'){
+        //         $('#card5').css().backgroundImage='img/clear-sky-01d-01n.jpeg';
+        //     } else if (iconData5.innerText === '02d' || '02n'){
+        //         $('#card5').css().backgroundImage='img/cloud-02d-02n.jpeg';
+        //     } else if (iconData5.innerText === '03d' || '03n'){
+        //         $('#card5').css().backgroundImage='img/cloud-03d-03n.jpeg';
+        //     } else if (iconData5.innerText === '04d' || '04n'){
+        //         $('#card5').css().backgroundImage='img/cloud-04d-04n.jpeg';
+        //     }
+        // })
     });
+
+    // document.getElementById('changeCardsBtn').addEventListener('click', function (e){
+    //     e.preventDefault();
+    //     console.log("yo")
+    //     let iconId = document.getElementsByClassName('.icon');
+    //     for (let i = 0; i < iconId.length; i++){
+    //         console.log(iconId[i]);
+    //     }
+    //     // $(".icon").each(function(index, element){
+    //     //     console.log(element);
+    //     // });
+    //
+    //     console.log(iconId);
+    // });
+
 
         $.get("https://api.openweathermap.org/data/2.5/forecast/", {
             APPID: OPEN_WEATHER_APPID,
@@ -215,34 +355,110 @@ $(function(){
             $('#card1').append(`<div>${formatTime(data.list[0].dt)}</div>
                             <div>Current Temp: ${(data.list[0].main.temp)} F</div>
                             <div>Pressure: ${data.list[0].main.pressure}</div>
-                            <div>${data.list[0].weather[0].icon}</div>
+                            <img src="http://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png">
+                            <div id="icon1" class="icon">${data.list[0].weather[0].icon}</div>
                             <div>Description: ${data.list[0].weather[0].description}</div>
                             <div>Wind: ${data.list[8].wind.speed} ${(windCardinalDirection(data.list[0].wind.deg))}</div>`)
             $('#card2').append(`<div>${formatTime(data.list[8].dt)}</div>
                             <div>Temp: ${(data.list[8].main.temp)} F</div>
                             <div>Pressure: ${data.list[8].main.pressure}</div>
-                            <div>${data.list[8].weather[0].icon}</div>
+                            <img src="http://openweathermap.org/img/w/${data.list[8].weather[0].icon}.png">
+                            <div id="icon2" class="icon">${data.list[8].weather[0].icon}</div>
                             <div>Description: ${data.list[8].weather[0].description}</div>
                             <div>Wind: ${data.list[8].wind.speed} ${(windCardinalDirection(data.list[8].wind.deg))}</div>`)
             $('#card3').append(`<div>${formatTime(data.list[16].dt)}</div>
                             <div>Temp: ${(data.list[16].main.temp)} F</div>
                             <div>Pressure: ${data.list[16].main.pressure}</div>
-                            <div>${data.list[16].weather[0].icon}</div>
+                            <img src="http://openweathermap.org/img/w/${data.list[16].weather[0].icon}.png">
+                            <div id="icon3" class="icon">${data.list[16].weather[0].icon}</div>
                             <div>Description: ${data.list[16].weather[0].description}</div>
                             <div>Wind: ${data.list[16].wind.speed} ${(windCardinalDirection(data.list[8].wind.deg))}</div>`)
             $('#card4').append(`<div>${formatTime(data.list[24].dt)}</div>
                             <div>Temp: ${(data.list[24].main.temp)} F</div>
                             <div>Pressure: ${data.list[24].main.pressure}</div>
-                            <div>${data.list[24].weather[0].icon}</div>
+                            <img src="http://openweathermap.org/img/w/${data.list[24].weather[0].icon}.png">
+                            <div id="icon4" class="icon">${data.list[24].weather[0].icon}</div>
                             <div>Description: ${data.list[24].weather[0].description}</div>
                             <div>Wind: ${data.list[24].wind.speed} ${(windCardinalDirection(data.list[8].wind.deg))}</div>`)
             $('#card5').append(`<div>${formatTime(data.list[32].dt)}</div>
                             <div>Temp: ${(data.list[32].main.temp)} F</div>
                             <div>Pressure: ${data.list[32].main.pressure}</div>
-                            <div>${data.list[32].weather[0].icon}</div>
+                            <img src="http://openweathermap.org/img/w/${data.list[32].weather[0].icon}.png">
+                            <div id="icon5" class="icon">${data.list[32].weather[0].icon}</div>
                             <div>Description: ${data.list[32].weather[0].description}</div>
                             <div>Wind: ${data.list[32].wind.speed} ${(windCardinalDirection(data.list[8].wind.deg))}</div>`)
+
+
+            document.getElementById('changeCardsBtn').addEventListener('click', function (e){
+                e.preventDefault();
+                // console.log('yo')
+                // console.log($("#icon5").text());
+                // console.log("yo")
+                let iconId = document.getElementsByClassName('.icon');
+                for (let i = 0; i < iconId.length; i++){
+                    console.log(iconId[i]);
+                }
+                $(".icon").each(function(index, element){
+                    console.log($(this).text());
+                    let code = $(this).text();
+                    if (code === '11d'){
+                        $(this).parent().parent().css('background-image', 'url("img/thunderstorm-11d.jpeg")');
+                    } else if (code === '09d'){
+                        $(this).parent().parent().css('background-image', 'url("img/drizzle-09d.jpeg")');
+                    } else if (code === '10d') {
+                        $(this).parent().parent().css('background-image', 'url("img/rain-10d.jpeg")');
+                    } else if (code === '13d') {
+                        $(this).parent().parent().css('background-image', 'url("img/freezing-rain-13d.jpeg")');
+                    } else if (code === '50d'){
+                        $(this).parent().parent().css('background-image', 'url("img/atmosphere-50d.jpeg")');
+                    } else if (code === '01d' || '01n'){
+                        $(this).parent().parent().css('background-image', 'url("img/clear-sky-01d-01n.jpeg")');
+                    } else if (code === '02d' || '02n'){
+                        $(this).parent().parent().css('background-image', 'url("img/cloud-02d-02n.jpeg")');
+                    } else if (code === '03d' || '03n'){
+                        $(this).parent().parent().css('background-image', 'url("img/cloud-03d-03n.jpeg")');
+                    } else if (code === '04d' || '04n'){
+                        $(this).parent().parent().css('background-image', 'url("img/cloud-04d-04n.jpeg")');
+                    }
+                })
+            });
+
         });
+
+
+
+
+    // })
+    // iconData1.css('background-image', function (e){
+    //     e.preventDefault();
+    //     if (iconData1.innerText === '11d'){
+    //         $('#card1').css().backgroundImage='img/thunderstorm-11d.jpeg';
+    //     } else if (iconData1.innerText === '09d'){
+    //         $('#card1').css().backgroundImage='img/drizzle-09d.jpeg';
+    //     } else if (iconData1.innerText === '10d'){
+    //         $('#card1').css().backgroundImage='img/rain-10d.jpeg';
+    //     } else if (iconData1.innerText === '13d'){
+    //         $('#card1').css().backgroundImage='img/freezing-rain-13d.jpeg';
+    //     } else if (iconData1.innerText === '50d'){
+    //         $('#card1').css().backgroundImage='img/atmosphere-50d.jpeg';
+    //     } else if (iconData1.innerText === '01d' || '01n'){
+    //         $('#card1').css().backgroundImage='img/clear-sky-01d-01n.jpeg';
+    //     } else if (iconData1.innerText === '02d' || '02n'){
+    //         $('#card1').css().backgroundImage='img/cloud-02d-02n.jpeg';
+    //     } else if (iconData1.innerText === '03d' || '03n'){
+    //         $('#card1').css().backgroundImage='img/cloud-03d-03n.jpeg';
+    //     } else if (iconData1.innerText === '04d' || '04n'){
+    //         $('#card1').css().backgroundImage='img/cloud-04d-04n.jpeg';
+    //     }
+    // })
+
+
+
+
+
+
+
+
 
 
 

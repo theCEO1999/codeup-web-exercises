@@ -2,22 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Warm-Ups</title>
+    <title>Warmups</title>
+    <link rel="stylesheet" href="css/dark-mode.css">
     <style>
-        body {
-            background-color: black;
-            color: white;
+        h2  {
+            padding: 20px;
+            border: 1px solid white;
+        }
+
+        .hotpink {
+            color: hotpink;
         }
     </style>
 </head>
 <body>
-<h1>Warm Ups</h1>
+<h1>Warmups</h1>
+<button>Change Heading</button>
+<br>
+<br>
+<div id="loremParagraphs">
+    <h2>Lorem Generator</h2>
+    <button id="hotPinkIt">Hot Pink It</button>
+</div>
+<br>
+<button id="blinkPink">Pink Blinky</button>
+<br>
+<br>
 <label for="source">Input for paragraph:</label>
 <input type="text" id="source">
 <p id="output"></p>
-<button>Change Heading</button>
 <script src="JS/jquery-3.6.1.min.js"></script>
 <script src="JS/utils.js"></script>
-<script src = "JS/warm-ups.js"></script>
+<script src="JS/warm-ups.js"></script>
 </body>
 </html>

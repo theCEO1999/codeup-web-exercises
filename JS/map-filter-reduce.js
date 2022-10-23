@@ -28,33 +28,6 @@ const desserts = ['sherbet', 'whiskey cake', 'cupcake', ' eclair'];
 //     $("div").append(`<p>${element}</p>`)
 // })
 
-// const cars = [
-//     {
-//         make: "Honda",
-//         model: "Civic",
-//         mileage: 10428
-//     },
-//     {
-//         make: "Toyota",
-//         model: "Corolla",
-//         mileage: 9425
-//     },
-//     {
-//         make: "Ford",
-//         model: "Mustang",
-//         mileage: 2567
-//     },
-//     {
-//         make: "Audi",
-//         model: "A3",
-//         mileage: 14500
-//     },
-//     {
-//         make: "Mazda",
-//         model: "3",
-//         mileage: 11248
-//     }
-// ];
 
 // const mileage = cars.map(car => car.mileage);
 // console.log(mileage);
@@ -154,19 +127,6 @@ const mileages = cars.reduce((accumulator, car) =>{
     return accumulator;
 }, []);
 console.log(mileages)
-
-// const highestMileage = cars.reduce((accumulator, car, index, array) =>{
-//     accumulator.push(car.mileage);
-//     if (index === array.length -1){
-//         // return Math.max.apply(Math, accumulator);
-//         // return Math.max(...accumulator);
-//         // return accumulator.sort(function (a, b){return b-a})[0];
-//     } else {accumulator.push(car.mileage);
-//         return accumulator;
-//     }
-//
-// }, []);
-// console.log(highestMileage);
 
 
 const highestMileage = cars.reduce((accumulator, car) =>{
